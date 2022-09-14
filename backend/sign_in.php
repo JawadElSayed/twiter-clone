@@ -4,6 +4,7 @@ include("connection.php");
 
 $email = $_POST["email"];
 $password = $_POST["password"];
+$response = [];
 
 // checking email if exist
 $select = mysqli_query($twitter, "SELECT email FROM users WHERE email = '$email'");
@@ -27,5 +28,12 @@ if($password != $select) {
     $response["error"] = "password";
     exit($json = json_encode($response));
 }
+
+// logging in
+$response["success"] = true;
+$select = mysqli_query($twitter, "SELECT id FROM users WHERE email = '$email'")->fetch_object()->id;
+$response["user_id"] = $select;
+
+echo json_encode($response);
 
 ?>
