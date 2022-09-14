@@ -27,6 +27,13 @@ if(mysqli_num_rows($select)) {
     exit($json = json_encode($response));
 }
 
+// hash password
+$password = hash("sha256", $password);
+$password .= "1hfmlus";
+$password = hash("sha256", $password);
+$password .= "iywuhi";
+$password = hash("sha256", $password);
+
 // insert data
 $add = $twitter->prepare("INSERT INTO users(username, name, email, password, dob, join_date) VALUE (?, ?, ?, ?, ?, ?)");
 $add->bind_param("ssssss", $username, $name, $email, $password, $dob, $join_date);
