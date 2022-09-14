@@ -13,6 +13,13 @@ if(!(mysqli_num_rows($select))) {
     exit($json = json_encode($response));
 }
 
+// hash password
+$password = hash("sha256", $password);
+$password .= "1hfmlus";
+$password = hash("sha256", $password);
+$password .= "iywuhi";
+$password = hash("sha256", $password);
+
 // checking password if exist
 $select = mysqli_query($twitter, "SELECT password FROM users WHERE email = '$email'")->fetch_object()->password;
 if($password != $select) {
