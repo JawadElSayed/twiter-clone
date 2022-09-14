@@ -13,4 +13,12 @@ if(!(mysqli_num_rows($select))) {
     exit($json = json_encode($response));
 }
 
+// checking password if exist
+$select = mysqli_query($twitter, "SELECT password FROM users WHERE email = '$email'")->fetch_object()->password;
+if($password != $select) {
+    $response["success"] = false;
+    $response["error"] = "password";
+    exit($json = json_encode($response));
+}
+
 ?>
