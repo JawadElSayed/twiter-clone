@@ -16,11 +16,17 @@ $response = [];
 $select = mysqli_query($twitter, "SELECT username FROM users WHERE username = '$username'");
 if(mysqli_num_rows($select)) {
     $response["sign_up"] = false;
+    $response["error"] = "username";
     exit($json = json_encode($response));
 }
 
-
-
+// // checking email if exist
+$select = mysqli_query($twitter, "SELECT email FROM users WHERE email = '$email'");
+if(mysqli_num_rows($select)) {
+    $response["sign_up"] = false;
+    $response["error"] = "email";
+    exit($json = json_encode($response));
+}
 
 
 ?>
