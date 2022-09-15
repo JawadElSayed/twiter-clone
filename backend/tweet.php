@@ -13,6 +13,13 @@ $query = $twitter->prepare("INSERT INTO tweets(tweet, users_id, tweet_time) VALU
 $query->bind_param("sss", $tweet, $user_id, $tweet_time);
 $query->execute();
 
+// adding image
+$image = explode( ',', $image );
+$image = $image[1];
+$data = base64_decode($image);
+$file = "images/" . uniqid() . '.png';
+$success = file_put_contents($file, $data);
+
 $response = [];
 $response["success"] = true;
 
