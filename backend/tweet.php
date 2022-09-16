@@ -9,11 +9,16 @@ $tweet_time = DateTime::createFromFormat('j/n/Y G:i:s', $_POST["tweet_time"])->f
 $image = $_POST["image"];
 
 // decoding and saving image
-$image = explode( ',', $image );
-$image = $image[1];
-$data = base64_decode($image);
-$file = "images/" . uniqid() . '.png';
-$success = file_put_contents($file, $data);
+if ($image != NULL){
+    $image = explode( ',', $image );
+    $ext = explode( '/', $image[0] );
+    $ext = explode( ';', $ext[1] );
+    $ext = $ext[0];
+    $image = $image[1];
+    $data = base64_decode($image);
+    $file = "images/tweet_img/" . uniqid() . '.' . $ext;
+    $success = file_put_contents($file, $data);
+}
 
 // add tweet
 $query = $twitter->prepare("INSERT INTO tweets(tweet, image, users_id, tweet_time) VALUE (?, ?, ?, ?)");
