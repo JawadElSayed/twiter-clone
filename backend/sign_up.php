@@ -10,7 +10,7 @@ $password = $_POST["password"];
 $dob = DateTime::createFromFormat('j/n/Y', $_POST["dob"])->format('Y/m/d');
 $join_date = DateTime::createFromFormat('j/n/Y', $_POST["join_date"])->format('Y/m/d');
 $response = [];
-$profile_img = "images/profilea_img/default.png";
+$profile_img = "images/profile_img/default.png";
 
 // checking username if exist
 $select = mysqli_query($twitter, "SELECT username FROM users WHERE username = '$username'");
