@@ -152,6 +152,19 @@ flex-grow: 1;
 }
 
 
+.form-box .input-field{
+    width: 100%;
+    padding: 10px;
+    margin: 5px auto;
+    border: 1px solid #4A99E9;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+
+
+
 @media only screen and (max-width: 600px ){
  .form-box{
     width:100% ;
