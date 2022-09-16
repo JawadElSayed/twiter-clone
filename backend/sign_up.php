@@ -10,6 +10,7 @@ $password = $_POST["password"];
 $dob = DateTime::createFromFormat('j/n/Y', $_POST["dob"])->format('Y/m/d');
 $join_date = DateTime::createFromFormat('j/n/Y', $_POST["join_date"])->format('Y/m/d');
 $response = [];
+$profile_img = "images/profilea_img/default.png";
 
 // checking username if exist
 $select = mysqli_query($twitter, "SELECT username FROM users WHERE username = '$username'");
@@ -35,8 +36,8 @@ $password .= "iywuhi";
 $password = hash("sha256", $password);
 
 // insert data
-$add = $twitter->prepare("INSERT INTO users(username, name, email, password, dob, join_date) VALUE (?, ?, ?, ?, ?, ?)");
-$add->bind_param("ssssss", $username, $name, $email, $password, $dob, $join_date);
+$add = $twitter->prepare("INSERT INTO users(username, name, email, password, dob, join_date, profile_img) VALUE (?, ?, ?, ?, ?, ?, ?)");
+$add->bind_param("sssssss", $username, $name, $email, $password, $dob, $join_date, $profile_img);
 $add->execute();
 
 $response["sign_up"] = true;
