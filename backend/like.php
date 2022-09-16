@@ -6,7 +6,7 @@ include("connection.php");
 $user_id = $_POST["user_id"];
 $tweet_id = $_POST["tweet_id"];
 
-// add tweet
+// add like
 $query = $twitter->prepare("INSERT INTO likes(users_id, tweets_id) VALUE (?, ?)");
 $query->bind_param("ss",$user_id, $tweet_id);
 $query->execute();

@@ -7,8 +7,8 @@ $name = $_POST["name"];
 $username = $_POST["username"];
 $email = $_POST["email"];
 $password = $_POST["password"];
-$dob = DateTime::createFromFormat('d/m/Y', $_POST["dob"])->format('Y/m/d');
-$join_date = DateTime::createFromFormat('d/m/Y', $_POST["join_date"])->format('Y/m/d');
+$dob = DateTime::createFromFormat('j/n/Y', $_POST["dob"])->format('Y/m/d');
+$join_date = DateTime::createFromFormat('j/n/Y', $_POST["join_date"])->format('Y/m/d');
 $response = [];
 
 // checking username if exist
