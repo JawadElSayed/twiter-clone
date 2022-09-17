@@ -15,5 +15,12 @@ $sql = "SELECT tweets.id, users.name, users.username, users.profile_img, tweets.
         WHERE tweets.users_id = '$user_id'
         GROUP BY tweets.id
         ORDER BY tweets.tweet_time";
+$query = $twitter->prepare($sql);
+$query->execute();
+$array = $query->get_result();
+
+while($a = $array->fetch_assoc()){
+    $response[] = $a;
+}
 
 ?>
