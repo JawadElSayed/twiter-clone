@@ -13,16 +13,23 @@
   <!-- left sidebar area -->
   <div class="left-sidebar">
     <a href=""><img class="twitter-icon" src="./assets/twitter-logo.png" /></a>
-    <a href=""><img src="./assets/home.png"> Home</a>
-    <a href=""><img src="./assets/profile.jpeg"> Profile</a>
-    <button type="submit">Tweet</button>
+    <a href=""><img src="./assets/home.png"> <p>Home</p></a>
+    <a href=""><img src="./assets/profile.jpeg"><p>Profile</p></a>
+    <button type="submit" class="side-tweet">Tweet</button>
+    <button type="submit" class="side-tweet-mobile">+</button>
   </div>
 
 
    <!-- main sidebar area -->
   <div class="main-content">
     <div class="top-bar">
-      <h6>Home</h3>
+      <div>
+        <h4>Home</h4>
+      </div>
+      <div class = "search-box search-box-mobile">
+        <img src="./assets/search.jpeg">
+        <input type = "text" placeholder="Search Twitter">
+        </div>
     </div>
 
     <div class="write-post">
@@ -69,6 +76,7 @@
     </div>
 
     <button class="load-more"> Load More</button>
+    <p class="no-posts"> No more posts to show!</p>
 
   </div>
 
