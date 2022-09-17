@@ -1,6 +1,7 @@
 <?php
 
 include("connection.php");
+include("encode_decode_image.php");
 
 // inputs
 $user_id = $_POST["user_id"];
@@ -10,14 +11,7 @@ $image = $_POST["image"];
 
 // decoding and saving image
 if ($image != NULL){
-    $image = explode( ',', $image );
-    $ext = explode( '/', $image[0] );
-    $ext = explode( ';', $ext[1] );
-    $ext = $ext[0];
-    $image = $image[1];
-    $data = base64_decode($image);
-    $file = "images/tweet_img/" . uniqid() . '.' . $ext;
-    $success = file_put_contents($file, $data);
+    $file =  decode_image($image , "images/tweet_img/");
 }
 
 // add tweet
