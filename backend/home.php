@@ -28,6 +28,14 @@ while($a = $array->fetch_assoc()){
     $response[] = $a;
 }
 
+// encoding image
+for ($i = 0 ; $i < count($response) - 1 ; $i++) {
+    if ($response[$i]["image"] != NULL){
+        $response[$i]["image"] = encode_image($response[$i]["image"]);
+    }
+    
+}
+
 $json = json_encode($response, JSON_UNESCAPED_SLASHES);
 echo $json;
 
