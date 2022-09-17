@@ -41,14 +41,13 @@ else{
 
 // set update
 $sql = "UPDATE users
-        SET username = '$username'
-        SET name = '$name'
-        SET profile_img = '$username'
-        SET cover_img = '$username'
-        SET bio = '$bio'
+        SET username = '$username',
+        name = '$name',
+        profile_img = '$new_profile_img',
+        cover_img = '$new_cover_img',
+        bio = '$bio'
         WHERE id = '$user_id'";
-$update = $twitter->prepare($sql);
-$update->execute();
+$r = $twitter->query($sql);
 
 $response["success"] = TRUE;
 
