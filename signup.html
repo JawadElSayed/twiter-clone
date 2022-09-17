@@ -17,33 +17,35 @@
         <img src="./assets/twitter-logo.png" />
         <h1>Happening now</h1>
         <h3>Join Twitter Today</h3>
-        <button type="submit">Sign up</button>
+        <button type="submit" onclick="goSignUp()">Sign up</button>
         <h5>Already have an account?</h5>
-        <button type="submit">Sign in</button>
+        <button type="submit" onclick="goSignIn()">Sign in</button>
     </div>
 </div>
 
-<div class="form-box">
+<div class="form-box invisible" id="signin_box" >
     <img src="./assets/twitter-logo.png" />
     <h4>Sign in to Twitter</h4>
-    <input type="text" placeholder="username" required>
-    <input type="password" placeholder="password" required>
+    <input type="text" class="input-field" placeholder="username" required>
+    <input type="password" class="input-field" placeholder="password" required>
     <button type="submit"> Sign in</button>
-    <p> Don't have an account? <a> Sign up</a></p>
+    <p> Don't have an account? <a onclick="goSignUp()"> Sign up</a></p>
 </div>
 
-<div class="form-box">
+<div class="form-box invisible" id="signup_box">
+    <form>
     <img src="./assets/twitter-logo.png" />
     <h4>Join Twitter today</h4>
-    <input type="text" class="input-field" placeholder="name" required>
-    <input type="text" class="input-field" placeholder="username" required>
-    <input type="text" class="input-field" placeholder="email" required>
-    <input type="password" class="input-field" placeholder="password" required>
-    <input type="date" class="input-field" required>
-    
-    <button type="submit"> Sign up</button>
-    <p> Already have an account? <a> Sign in</a></p>
+    <input type="text" id="signup_name" class="input-field" placeholder="name" required>
+    <input type="text" id="signup_username" class="input-field" placeholder="username" required>
+    <input type="text" id="signup_email" class="input-field" placeholder="email" required>
+    <input type="password" id="signup_password" class="input-field" placeholder="password" required>
+    <input type="date" id="signup_dob" class="input-field" required>
+    <button type="submit" id="submit_signup"> Sign up</button>
+    <p> Already have an account? <a onclick="goSignIn()"> Sign in</a></p>
+    </form>
 </div>
 
+<script src="./js/scripts.js"></script>
 </body>
 </html>
