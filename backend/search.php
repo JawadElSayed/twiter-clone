@@ -1,6 +1,7 @@
 <?php
 
 include("connection.php");
+include("encode_decode_image.php");
 
 // variables
 $search = $_GET["search"];
@@ -20,6 +21,13 @@ $array = $query->get_result();
 // filling search result
 while($a = $array->fetch_assoc()){
     $response[] = $a;
+}
+
+// encoding image
+for ($i = 0 ; $i < count($response) ; $i++) {
+    if ($response[$i]["profile_img"] != NULL){
+        $response[$i]["profile_img"] = encode_image($response[$i]["profile_img"]);
+    }
 }
 
 $json = json_encode($response, JSON_UNESCAPED_SLASHES);
