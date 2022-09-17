@@ -13,7 +13,7 @@ $profile_image_64 = encode_image($path);
 $response["profile_img"] = $profile_image_64;
 
 // getting tweets
-$sql = "SELECT tweets.id, users.name, users.username, tweets.tweet, tweets.image, COUNT(likes.users_id) as likes
+$sql = "SELECT tweets.id, users.name, users.username, users.profile_img, tweets.tweet, tweets.image, COUNT(likes.users_id) as likes
         FROM `tweets`
         INNER JOIN users ON tweets.users_id = users.id
         INNER JOIN likes ON tweets.id = likes.tweets_id
@@ -33,7 +33,9 @@ for ($i = 0 ; $i < count($response) - 1 ; $i++) {
     if ($response[$i]["image"] != NULL){
         $response[$i]["image"] = encode_image($response[$i]["image"]);
     }
-    
+    if ($response[$i]["profile_img"] != NULL){
+        $response[$i]["profile_img"] = encode_image($response[$i]["profile_img"]);
+    }
 }
 
 $json = json_encode($response, JSON_UNESCAPED_SLASHES);
