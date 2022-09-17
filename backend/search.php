@@ -17,4 +17,12 @@ $query = $twitter->prepare($sql);
 $query->execute();
 $array = $query->get_result();
 
+// filling search result
+while($a = $array->fetch_assoc()){
+    $response[] = $a;
+}
+
+$json = json_encode($response, JSON_UNESCAPED_SLASHES);
+echo $json;
+
 ?>
