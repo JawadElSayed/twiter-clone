@@ -6,7 +6,7 @@ include("connection.php");
 function encode_image ($path){
     $ext = pathinfo($path, PATHINFO_EXTENSION);
     $data = file_get_contents($path);
-    $base64 = "data:images/" . $ext . ";base64," . base64_encode($data);
+    $base64 = "data:image/" . $ext . ";base64," . base64_encode($data);
     return $base64;
 }
 

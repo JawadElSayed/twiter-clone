@@ -19,6 +19,16 @@ if(mysqli_num_rows($select)) {
     exit($json = json_encode($response));
 }
 
+// checking change of profile image
+$old_profile_url = mysqli_query($twitter, "SELECT profile_img FROM users WHERE id = '$user_id'")->fetch_object()->profile_img;
+$old_profile_base64 = encode_image($old_profile_url);
+if ($profile_img != $old_profile_base64){
+    $new_profile_img = decode_image($profile_img,"images/profile_img/");
+}
+else{
+    $new_profile_img = $old_profile_url;
+}
+
 // set update
 $sql = "UPDATE users
         SET username = '$username'
