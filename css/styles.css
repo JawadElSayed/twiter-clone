@@ -287,6 +287,7 @@ flex-grow: 1;
     color: white;
     padding: 10px;
     display: flex;
+    z-index: 10;
 }
 
 .main-content{
@@ -517,4 +518,84 @@ padding: 5px;
     display: block;
       }
 
+.hide-name-mobile{
+    display: none;
+}
+
+.back-arrow{
+    width: 10px;
+    height: 10px;
+    margin-right: 20px;
+}
+
+.profile-info h4{
+    font-size: 20px;
+}
+
+.profile-info p, span{
+    font-size: 12px;
+}
+
+.user-profile-button{
+    padding: 0;
+    font-size: 10px;
+}
+}
+
+
+/* profile page */
+.back-arrow img{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: none;
+}
+.back-arrow {
+    padding: 10px;
+}
+
+.user-profile-div{
+    position: relative;
+    width: 100%;
+    padding: 10px 0 30px 0;
+    margin: 0;
+    display: block;
+}
+
+.user-profile-div img:first-child{
+    width: 100%;
+    height: 30%;
+
+}
+.user-profile-img{
+    /* content: ''; */
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    /* z-index: 10; */
+    bottom:-20px;
+    left: 20px;
+    display: block;
+}
+
+.user-profile-button{
+    border-radius: 20px;
+    border: 1px solid white;
+    position: absolute;
+    /* z-index: 10; */
+    padding: 10px 20px;
+    right:20px;
+    bottom: -20px;
+    color: white;
+}
+
+.profile-info{
+    padding: 20px;
+    border-bottom:1px solid grey ;
+}
+
+.profile-info h3,h5,h6,span, p {
+    padding: 5px;
 }

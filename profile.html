@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <title>Twitter-profile</title>
+</head>
+
+<body>
+
+<!-- using flex to cut the page into 3 parts -->
+  <div class="main">
+  <!-- left sidebar area -->
+  <div class="left-sidebar">
+    <a href=""><img class="twitter-icon" src="./assets/twitter-logo.png" /></a>
+    <a href=""><img src="./assets/home.png"> <p>Home</p></a>
+    <a href=""><img src="./assets/profile.jpeg"><p>Profile</p></a>
+    <button type="submit" class="side-tweet">Tweet</button>
+  </div>
+
+   <!-- main bar area -->
+  <div class="main-content">
+    <div class="top-bar">
+        <div class="back-arrow">
+            <img src="./assets/back.png">
+        </div>
+      <div class="hide-name-mobile">
+        <h4>Name</h4>
+        <h6>nb of tweets</h6>
+      </div>
+      <div class = "search-box search-box-mobile">
+        <img src="./assets/search.jpeg">
+        <input type = "text" placeholder="Search Twitter">
+      </div>
+    </div>
+<!-- the part where user's profile is shown in -->
+    <div class="user-profile-div">
+        <img src="./assets/background.jpeg">
+        <img class="user-profile-img" src="./assets/person.jpeg">
+        <button class="user-profile-button"> Set up profile</button>
+    </div>
+    <div class="profile-info">
+        <h4>Name</h4>
+        <p>username</p>
+        <p>Joined Sep 2001</p>
+
+        <span>100 following</span>
+        <span>10 followers</span>
+    </div>
+
+<!-- the part where posts are shown -->
+    <div class="post-container">
+      <div class="profile-img">
+        <img src="./assets/person.jpeg">
+      </div>
+      <div class="user-post">
+      <div class="user">
+        <p> name</p>
+        <small>username</small>
+        <img class="like" src="./assets/heart.png">
+      </div>
+      <p class="post-text"> lasdas dasklda sdalsdaskd alsda sdkasdasld aksdsld aklsd asdkalsd l skadl</p>
+      <img class="uploaded-img" src="./assets/signup.jpeg">
+      </div>
+    </div>
+    <div class="post-container">
+      <div class="profile-img">
+        <img src="./assets/person.jpeg">
+      </div>
+      <div class="user-post">
+      <div class="user">
+        <p> name</p>
+        <small>username</small>
+        <img class="like" src="./assets/red-heart.png">
+      </div>
+      <p class="post-text"> lasdas dasklda sdalsdaskd alsda sdkasdasld aksdsld aklsd asdkalsd l skadl</p>
+      <img class="uploaded-img" src="">
+      </div>
+    </div>
+<!-- footer to load more posts or show that there is no more -->
+    <button class="load-more"> Load More</button>
+    <p class="no-posts"> No more posts to show!</p>
+  </div>
+
+   <!-- right sidebar area -->
+    <div class="right-sidebar">
+    <div class = "search-box">
+    <img src="./assets/search.jpeg">
+    <input type = "text" placeholder="Search Twitter">
+    </div>
+    </div>
+</div>
+
+</body>
+</html>
