@@ -38,7 +38,7 @@
     <div class="user-profile-div">
         <img src="./assets/background.jpeg">
         <img class="user-profile-img" src="./assets/person.jpeg">
-        <button class="user-profile-button"> Set up profile</button>
+        <button class="user-profile-button" onclick="setProfile()"> Set up profile</button>
     </div>
     <div class="profile-info">
         <h4>Name</h4>
@@ -92,7 +92,7 @@
     </div>
 </div>
 
-<div class="form-box">
+<div class="form-box invisible" id="setup_profile">
     <form>
     <img src="./assets/twitter-logo.png" />
     <h4>Edit Profile</h4>
@@ -107,5 +107,6 @@
     </form>
 </div>
 
+<script src="./js/scripts.js"></script>
 </body>
 </html>

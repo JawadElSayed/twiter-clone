@@ -24,3 +24,7 @@ function goSignIn(){
     document.getElementById("signup_box").classList.add("invisible");
     document.getElementById("signin_box").classList.toggle("invisible");
 }
+
+function setProfile(){
+    document.getElementById("setup_profile").classList.toggle("invisible");
+}
