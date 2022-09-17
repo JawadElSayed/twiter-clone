@@ -29,6 +29,16 @@ else{
     $new_profile_img = $old_profile_url;
 }
 
+// checking change of cover image
+$old_cover_url = mysqli_query($twitter, "SELECT cover_img FROM users WHERE id = '$user_id'")->fetch_object()->cover_img;
+$old_cover_base64 = encode_image($old_cover_url);
+if ($cover_img != $old_cover_base64){
+    $new_cover_img = decode_image($cover_img,"images/cover_img/");
+}
+else{
+    $new_cover_img = $old_cover_url;
+}
+
 // set update
 $sql = "UPDATE users
         SET username = '$username'
