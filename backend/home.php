@@ -13,11 +13,12 @@ $profile_image_64 = encode_image($path);
 $response["profile_img"] = $profile_image_64;
 
 // getting tweets
-$sql = "SELECT tweets.id, users.name, users.username, users.profile_img, tweets.tweet, tweets.image, COUNT(likes.users_id) as likes
+$sql = "SELECT tweets.id, users.id, users.name, users.username, users.profile_img, tweets.tweet, tweets.image, COUNT(likes.users_id) as likes
         FROM `tweets`
         INNER JOIN users ON tweets.users_id = users.id
-        INNER JOIN likes ON tweets.id = likes.tweets_id
+        LEFT JOIN likes ON tweets.id = likes.tweets_id
         WHERE tweets.users_id = ANY (SELECT followed_id FROM followers WHERE followers.follower_id = '$user_id')
+        OR tweets.users_id = '$user_id'
         GROUP BY tweets.id
         ORDER BY tweets.tweet_time";
 $query = $twitter->prepare($sql);
