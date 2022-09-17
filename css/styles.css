@@ -189,7 +189,7 @@ flex-grow: 1;
 
   /* feed page */
   .search-box{
-    background: #efefef;
+    background: #88888888;
     width: 350px;
     border-radius: 20px;
     display: flex;
@@ -199,9 +199,11 @@ flex-grow: 1;
 
   .search-box img{
     width: 18px;
+    /* background-color: #88888888; */
+    background-color: transparent;
   }
   .search-box input{
-    width: 100%;
+    width: 90%;
     background: transparent;
     padding: 10px;
     outline: none;
@@ -248,7 +250,7 @@ padding-left: 10px;
 }
 
 .left-sidebar a img{
-    width: 25px;
+    width: 30px;
     margin-right: 15px;
 }
 .left-sidebar button{
