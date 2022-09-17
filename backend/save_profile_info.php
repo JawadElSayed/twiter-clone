@@ -19,4 +19,19 @@ if(mysqli_num_rows($select)) {
     exit($json = json_encode($response));
 }
 
+// set update
+$sql = "UPDATE users
+        SET username = '$username'
+        SET name = '$name'
+        SET profile_img = '$username'
+        SET cover_img = '$username'
+        SET bio = '$bio'
+        WHERE id = '$user_id'";
+$update = $twitter->prepare($sql);
+$update->execute();
+
+$response["success"] = TRUE;
+
+echo json_encode($response);
+
 ?>
