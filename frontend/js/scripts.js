@@ -142,3 +142,22 @@ function changeLikeImage(){
 //       });
 //   });
 
+///add login credintials to local storage
+function checkLocalLogin()
+{
+    let emailStored = localStorage.getItem('username')
+    let passwordStored = localStorage.getItem('password')
+
+    let emailInput = document.querySelector('#signin_username').value
+    let passwordInput = document.querySelector('#signin_password').value
+
+    if((emailInput == emailStored) && (emailInput == passwordStored))
+    {
+        //login successful
+    }
+
+}
+
+// on successful login through database I should save the username and password to local storage
+// localStorage.setItem("username", )
+// localStorage.setItem("password", )
