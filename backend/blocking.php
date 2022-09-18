@@ -14,6 +14,12 @@ $check_follow_slq = "SELECT *
         WHERE follower_id = '$blocker_id' AND followed_id = '$blocked_id'";
 $check_follow = mysqli_query($twitter, $check_follow_slq);
 
+// checking the followed
+$check_followed_slq = "SELECT *
+        FROM `followers`
+        WHERE follower_id = '$blocked_id' AND followed_id = '$blocker_id'";
+$check_followed = mysqli_query($twitter, $check_followed_slq);
+
 // checking the follow
 $check_follow_slq = "SELECT *
         FROM `followers`
@@ -32,6 +38,9 @@ if (mysqli_num_rows($check_block)){
 else{
     if (mysqli_num_rows($check_follow)){
         unfollow($blocker_id, $blocked_id, $twitter);
+        if(mysqli_num_rows($check_followed)){
+            unfollow($blocked_id, $blocker_id, $twitter);
+        }
         block($blocker_id, $blocked_id, $twitter);
     }
     else{
