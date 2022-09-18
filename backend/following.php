@@ -22,5 +22,17 @@ if (mysqli_num_rows($check)){
     echo json_encode($response);
     exit();
 }
+else{
+    $follow_sql = "INSERT INTO followers(follower_id, followed_id) VALUE (?, ?)";
+    $add = $twitter->prepare($follow_sql);
+    $add->bind_param("ss", $follower_id, $followed_id);
+    $add->execute();
+    $response["success"] = "follow";
+    echo json_encode($response);
+    exit();
+}
+
+$response["success"] = FALSE;
+echo json_encode($response);
 
 ?>
