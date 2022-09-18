@@ -30,4 +30,12 @@ function unfollow ($follower_id, $followed_id , $db){
     $add->execute();
 }
 
+// blocking function
+function block ($blocker_id, $blocked_id, $db){
+    $block_sql = "INSERT INTO blocked_users(blocker_id, blocked_id) VALUE (?, ?)";
+    $add = $db->prepare($block_sql);
+    $add->bind_param("ss", $blocker_id, $blocked_id);
+    $add->execute();
+}
+
 ?>
