@@ -12,9 +12,6 @@ function unfollow ($follower_id, $followed_id , $db){
         $unfollow_sql = "DELETE FROM followers WHERE follower_id = '$follower_id' and followed_id = '$followed_id'";
         $add = $db->prepare($unfollow_sql);
         $add->execute();
-        $response["success"] = "unfollow";
-        echo json_encode($response);
-        exit();
 }
 
 // checking the follow
@@ -26,6 +23,9 @@ $check = mysqli_query($twitter, $slq);
 // add follow or unfollow
 if (mysqli_num_rows($check)){
         unfollow($follower_id, $followed_id, $twitter);
+        $response["success"] = "unfollow";
+        echo json_encode($response);
+        exit();
 }
 else{
         $follow_sql = "INSERT INTO followers(follower_id, followed_id) VALUE (?, ?)";
