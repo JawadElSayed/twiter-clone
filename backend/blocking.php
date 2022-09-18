@@ -20,5 +20,14 @@ $check_follow_slq = "SELECT *
         WHERE follower_id = '$blocker_id' AND followed_id = '$blocked_id'";
 $check_follow = mysqli_query($twitter, $check_follow_slq);
 
+// add block or unblock
+if (mysqli_num_rows($check_block)){
+    $unblock_sql = "DELETE FROM blocked_users WHERE blocker_id = '$blocker_id' and blocked_id = '$blocked_id'";
+    $add = $twitter->prepare($unblock_sql);
+    $add->execute();
+    $response["success"] = "unblock";
+    echo json_encode($response);
+    exit();
+}
 
 ?>
