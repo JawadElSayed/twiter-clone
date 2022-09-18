@@ -7,6 +7,16 @@ $follower_id = $_POST["follower_id"];
 $followed_id = $_POST["followed_id"];
 $response = [];
 
+// unfollow function
+function unfollow ($follower_id, $followed_id , $db){
+        $unfollow_sql = "DELETE FROM followers WHERE follower_id = '$follower_id' and followed_id = '$followed_id'";
+        $add = $db->prepare($unfollow_sql);
+        $add->execute();
+        $response["success"] = "unfollow";
+        echo json_encode($response);
+        exit();
+}
+
 // checking the follow
 $slq = "SELECT *
         FROM `followers`
@@ -15,21 +25,16 @@ $check = mysqli_query($twitter, $slq);
 
 // add follow or unfollow
 if (mysqli_num_rows($check)){
-    $unfollow_sql = "DELETE FROM followers WHERE follower_id = '$follower_id' and followed_id = '$followed_id'";
-    $add = $twitter->prepare($unfollow_sql);
-    $add->execute();
-    $response["success"] = "unfollow";
-    echo json_encode($response);
-    exit();
+        unfollow($follower_id, $followed_id, $twitter);
 }
 else{
-    $follow_sql = "INSERT INTO followers(follower_id, followed_id) VALUE (?, ?)";
-    $add = $twitter->prepare($follow_sql);
-    $add->bind_param("ss", $follower_id, $followed_id);
-    $add->execute();
-    $response["success"] = "follow";
-    echo json_encode($response);
-    exit();
+        $follow_sql = "INSERT INTO followers(follower_id, followed_id) VALUE (?, ?)";
+        $add = $twitter->prepare($follow_sql);
+        $add->bind_param("ss", $follower_id, $followed_id);
+        $add->execute();
+        $response["success"] = "follow";
+        echo json_encode($response);
+        exit();
 }
 
 $response["success"] = FALSE;
