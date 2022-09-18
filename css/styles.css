@@ -231,7 +231,6 @@ flex-grow: 1;
 
   .left-sidebar{
     flex-basis: 25% ;
-    justify-content:flex-start;
     position: sticky;
     align-self: flex-start;
     padding-top: 10px;
@@ -340,7 +339,9 @@ flex-grow: 1;
     font-family: 'Times New Roman', Times, serif;
 }
 
-
+.like{
+    cursor: pointer;
+}
 .upload{
     display: flex;
     justify-content: space-between;
