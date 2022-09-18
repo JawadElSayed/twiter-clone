@@ -1,7 +1,7 @@
 <?php
 
 include("connection.php");
-include("encode_decode_image.php");
+include("functions.php");
 
 // variables
 $search = $_GET["search"];
