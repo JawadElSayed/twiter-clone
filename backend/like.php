@@ -26,7 +26,12 @@ else {
 }
 
 // returning count likes
-$select = mysqli_query($twitter, "SELECT COUNT(users_id) as likes FROM `likes` WHERE tweets_id = '$tweet_id'")->fetch_object()->likes;
+$count_sql = "SELECT COUNT(likes.users_id) as likes 
+            FROM `likes` 
+            INNER JOIN tweets on tweets_id = tweets.id
+            WHERE tweets_id = 3 
+            AND NOT likes.users_id = ANY (SELECT blocked_users.blocker_id FROM blocked_users WHERE blocked_users.blocked_id = tweets.users_id);";
+$select = mysqli_query($twitter, $count_sql)->fetch_object()->likes;
 
 $response["likes"] = $select;
 
