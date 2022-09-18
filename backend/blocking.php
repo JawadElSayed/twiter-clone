@@ -29,5 +29,20 @@ if (mysqli_num_rows($check_block)){
     echo json_encode($response);
     exit();
 }
+else{
+    if (mysqli_num_rows($check_follow)){
+        unfollow($blocker_id, $blocked_id, $twitter);
+        block($blocker_id, $blocked_id, $twitter);
+    }
+    else{
+        block($blocker_id, $blocked_id, $twitter);
+    }
+    $response["success"] = "block";
+    echo json_encode($response);
+    exit();
+}
+
+$response["success"] = FALSE;
+echo json_encode($response);
 
 ?>
